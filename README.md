@@ -44,7 +44,7 @@ This can be done by using a method of your choice, if you append a reverse proxy
 
 Serving an OCSP responder over HTTPS <a href=https://datatracker.ietf.org/doc/html/rfc5280#section-8>isn't a requirement</a> but is certainly possible, as mentioned in the wider community OCSP requirements on CA/Intermediate certificates can cause issues, using them on issued server/client certificates from them should be fine. 
 
-<h3>Building the container from scratch</h3>
+<h2>Building the container from scratch</h2>
 The container can be built manually, it is only an Alpine image with OpenSSL and CMD values set.
 
 Enter a directory and create a Dockerfile with the contents from <a href=https://github.com/wackysysadmin/ocsp-responder-container/blob/main/Dockerfile>here</a>.
