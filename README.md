@@ -1,4 +1,4 @@
-# Containerised OCSP Server
+# Containerised OCSP Responder
 This is a containerised version of the OCSP responder built into OpenSSL.
 
 Had built this to add onto my certificates primarily remove the warning on Microsoft's Terminal Services Client about being unable to validate the certificate against a responder when RDP'ing onto a server.
@@ -22,7 +22,7 @@ This container relies on already having the following:
 * OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses.
 
 <h2>Using Docker Compose</h2>
-Create a docker-compose.yml file with the contents of https://github.com/wackysysadmin/ocsp-server-container/blob/main/docker-compose.yml.
+Create a docker-compose.yml file with the contents of https://github.com/wackysysadmin/ocsp-responder-container/blob/main/docker-compose.yml.
 
 Bring up the OCSP responder server.
 ```
@@ -30,7 +30,7 @@ docker compose up -d
 ```
 
 ```
-docker logs ocsp-server
+docker logs ocsp-responder
 ACCEPT 0.0.0.0:2560 PID=1
 ocsp: waiting for OCSP client connections...
 ```
@@ -45,11 +45,11 @@ Serving an OCSP responder over HTTPS <a href=https://datatracker.ietf.org/doc/ht
 <h3>Building the container from scratch</h3>
 The container can be built manually, it is only an Alpine image with OpenSSL and CMD values set.
 
-Enter a directory and create a Dockerfile with the contents from <a href=https://github.com/wackysysadmin/ocsp-server-container/blob/main/Dockerfile>here</a>.
+Enter a directory and create a Dockerfile with the contents from <a href=https://github.com/wackysysadmin/ocsp-responder-container/blob/main/Dockerfile>here</a>.
 
 Create the container using build command:
 ```
-docker build -t ocsp-server:latest .
+docker build -t ocsp-responder:latest .
 ```
 <h1>Known issues</h1>
 
