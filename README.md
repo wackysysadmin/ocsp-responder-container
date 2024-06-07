@@ -14,15 +14,18 @@ This container relies on already having the following:
 <h1>Running the container</h1>
 <h2>Environment Variables</h2>
 
+The following variables are file locations relative to the container.
+
 * OCSP_INT_PORT: "2560" # OCSP mounting port internal to the container.
 * INDEX_FILE: "/data/index.txt" # The database file of the CA.
 * CA_FILE: "/data/ca-chain.cert.pem" # The CA or CA and intermediate public chain certificate.
 * OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate signed by the CA or intermediate.
 * OCSP_KEY_FILE: "/data/ocsp.key" # OCSP private key.
-* OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses.
+* OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses. The container will generate this logfile.
 
 <h2>Using Docker Compose</h2>
 Create a docker-compose.yml file with the contents of https://github.com/wackysysadmin/ocsp-responder-container/blob/main/docker-compose.yml.
+
 
 Modify the volume path to the path of your files.
 
@@ -36,6 +39,8 @@ docker logs ocsp-responder
 ACCEPT 0.0.0.0:2560 PID=1
 ocsp: waiting for OCSP client connections...
 ```
+
+Certificates can now be signed by defining your OCSP's FQDN. Example configuration: authorityInfoAccess = OCSP;URI:http://ocsp.hostname.foo:2560
 
 <h2>Reverse Proxy/HTTPS Support</h2>
 The OCSP responder server can be put behind a reverse proxy such as Caddy/NGINX/Traefik.
