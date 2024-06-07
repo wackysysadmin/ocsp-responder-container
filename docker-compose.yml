@@ -12,7 +12,7 @@ ocsp-responder:
       OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate.
       OCSP_KEY_FILE: "/data/ocsp.key" # OCSP private key.
       OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses.
-    volumes:
+    volumes: # Change this to your folder.
       - /path/to/folder/with/files:/data/:z
     restart: unless-stopped
     mem_limit: 32m
