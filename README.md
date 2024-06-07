@@ -29,7 +29,7 @@ Create a docker-compose.yml file with the contents of https://github.com/wackysy
 
 Modify the volume path to the path of your files.
 
-Bring up the OCSP responder server.
+Bring up the OCSP responder server:
 ```
 docker compose up -d
 ```
