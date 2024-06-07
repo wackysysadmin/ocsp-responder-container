@@ -1,9 +1,9 @@
 services:
-ocsp-server:
-    container_name: ocsp-server
-    hostname: ocsp-server
-    image: ocsp-server:latest
-    ports:
+ocsp-responder:
+    container_name: ocsp-responder
+    hostname: ocsp-responder
+    image: ocsp-responder:latest
+    ports: # Hash this and the ports out if putting behind a proxy
       - "2560:2560"
     environment:
       OCSP_INT_PORT: "2560" # OCSP mounting port internal to the container.
@@ -15,4 +15,4 @@ ocsp-server:
     volumes:
       - /path/to/folder/with/files:/data/:z
     restart: unless-stopped
-    mem_limit: 64m
+    mem_limit: 32m
