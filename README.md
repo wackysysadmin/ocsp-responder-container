@@ -1,7 +1,7 @@
 # Containerised OCSP Responder
 This is a containerised version of the OCSP responder built into OpenSSL.
 
-Had built this to add onto my certificates primarily remove the warning on Microsoft's Terminal Services Client about being unable to validate the certificate against a responder when RDP'ing onto a server.
+Had built this to add onto my certificates primarily to remove the warning on Microsoft's Terminal Services Client about being unable to validate the certificate against a responder when RDP'ing onto a server.
 
 <h1>Prerequisites</h1>
 This container relies on already having the following:
