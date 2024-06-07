@@ -1,0 +1,18 @@
+services:
+ocsp-server:
+    container_name: ocsp-server
+    hostname: ocsp-server
+    image: ocsp-server:latest
+    ports:
+      - "2560:2560"
+    environment:
+      OCSP_INT_PORT: "2560" # OCSP mounting port internal to the container.
+      INDEX_FILE: "/data/index.txt" # The database file of the CA.
+      CA_FILE: "/data/ca-chain.cert.pem" # The CA or CA and intermediate public chain certificate.
+      OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate.
+      OCSP_KEY_FILE: "/data/ocsp.key" # OCSP private key.
+      OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses.
+    volumes:
+      - /path/to/folder/with/files:/data/:z
+    restart: unless-stopped
+    mem_limit: 64m
