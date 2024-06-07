@@ -2,7 +2,7 @@ services:
 ocsp-responder:
     container_name: ocsp-responder
     hostname: ocsp-responder
-    image: ocsp-responder:latest
+    image: wackysysadmin/ocsp-responder:latest
     ports: # Hash this and the ports out if putting behind a proxy
       - "2560:2560"
     environment:
