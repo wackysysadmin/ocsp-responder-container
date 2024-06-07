@@ -1,8 +1,8 @@
 services:
 ocsp-responder:
-    container_name: ocsp-responder
-    hostname: ocsp-responder
-    image: wackysysadmin/ocsp-responder:latest
+    container_name: ocsp-responder 
+    hostname: ocsp-responder # container's hostname
+    image: wackysysadmin/ocsp-responder:latest #docker.io namespace/tag
     ports: # Hash this and the ports out if putting behind a proxy
       - "2560:2560"
     environment:
@@ -11,8 +11,7 @@ ocsp-responder:
       CA_FILE: "/data/ca-chain.cert.pem" # The CA or CA and intermediate public chain certificate.
       OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate.
       OCSP_KEY_FILE: "/data/ocsp.key" # OCSP private key.
-      OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses.
+      OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses. The container will generate this logfile.
     volumes: # Change this to your folder.
       - /path/to/folder/with/files:/data/:z
-    restart: unless-stopped
-    mem_limit: 32m
+    restart: unless-stopped # restart with docker
