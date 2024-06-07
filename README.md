@@ -24,6 +24,8 @@ This container relies on already having the following:
 <h2>Using Docker Compose</h2>
 Create a docker-compose.yml file with the contents of https://github.com/wackysysadmin/ocsp-responder-container/blob/main/docker-compose.yml.
 
+Modify the volume path to the path of your files.
+
 Bring up the OCSP responder server.
 ```
 docker compose up -d
