@@ -40,7 +40,7 @@ The OCSP responder server can be put behind a reverse proxy such as Caddy/NGINX/
 
 This can be done by using a method of your choice, if you append a reverse proxy onto the Docker Compose file or if the reverse proxy server is on the same container bridge network you can specify http://ocsp-responder:2560 as the proxy upstream address.
 
-Serving an OCSP responder over HTTPS <a ref=https://datatracker.ietf.org/doc/html/rfc5280#section-8>isn't a requirement</a> but is certainly possible, as mentioned in the wider community OCSP requirements on CA/Intermediate certificates can cause issues, using them on issued server/client certificates from them should be fine. 
+Serving an OCSP responder over HTTPS <a href=https://datatracker.ietf.org/doc/html/rfc5280#section-8>isn't a requirement</a> but is certainly possible, as mentioned in the wider community OCSP requirements on CA/Intermediate certificates can cause issues, using them on issued server/client certificates from them should be fine. 
 
 <h3>Building the container from scratch</h3>
 The container can be built manually, it is only an Alpine image with OpenSSL and CMD values set.
