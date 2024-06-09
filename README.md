@@ -10,8 +10,8 @@ This container relies on already having the following:
 
 * A working CA and/or intermediate server (Useful Guide: https://jamielinux.com/docs/openssl-certificate-authority/index.html, <a href=https://bounca.org/>BounCA</a>, <a href=https://lab-ca.net/>LabCA</a> etc)
 * An index file containing a list of current valid/revoked/expired certificates. (Otherwise known as the 'database' file in OpenSSL terminology)
-* The public certificate of your CA, or chain of the CA and intermediate.
-* An OCSP signing keypair from your CA or intermediate. (Guide: https://bhashineen.medium.com/create-your-own-ocsp-server-ffb212df8e63)
+* The public certificate of your root CA, or chain of the root CA and intermediate.
+* An OCSP signing keypair from your root CA or intermediate. (Guide: https://bhashineen.medium.com/create-your-own-ocsp-server-ffb212df8e63)
 
 <h1>Running the container</h1>
 <h2>Environment Variables</h2>
@@ -21,7 +21,7 @@ The following variables are file locations relative to the container.
 * OCSP_INT_PORT: "2560" # OCSP mounting port internal to the container.
 * INDEX_FILE: "/data/index.txt" # The database file of the CA.
 * CA_FILE: "/data/ca-chain.cert.pem" # The CA or CA and intermediate public chain certificate.
-* OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate signed by the CA or intermediate.
+* OCSP_CERT_FILE: "/data/ocsp.pem" # OCSP public certificate signed by the root CA or intermediate.
 * OCSP_KEY_FILE: "/data/ocsp.key" # OCSP private key.
 * OCSP_LOG_FILE: "/data/ocsp.log" # OCSP process's output log file, HTTP access logs and responses. The container will generate this logfile.
 
