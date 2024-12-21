@@ -1,5 +1,5 @@
 services:
-ocsp-responder:
+  ocsp-responder:
     container_name: ocsp-responder 
     hostname: ocsp-responder # container's hostname
     image: wackysysadmin/ocsp-responder:latest #docker.io namespace/tag
