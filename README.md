@@ -1,4 +1,4 @@
-# Containerised OCSP Responder
+# Containerised / Dockerised OCSP Responder
 [![Build Container](https://github.com/wackysysadmin/ocsp-responder-container/actions/workflows/build-container.yml/badge.svg)](https://github.com/wackysysadmin/ocsp-responder-container/actions/workflows/build-container.yml)
 
 This is a containerised version of the OCSP web responder built into OpenSSL.
